@@ -1,0 +1,110 @@
+#contact-us {
+    padding: 50px 15px 100px;
+
+    @include for_breakpoint(tablet mobile sm-mobile){
+        padding: 0px 15px 50px;
+    }
+
+    .contact-wrapper {
+        max-width: 1100px;
+        margin: auto;
+        padding: 0px 0px;
+        display: grid;
+        grid-template-columns: 400px auto;
+        box-shadow: 0 0 4px #a5a5a5;
+        border-radius: 10px;
+
+        @include for_breakpoint(tablet mobile sm-mobile){
+            grid-template-columns: 100%;
+            grid-auto-rows: minmax(400px, auto);
+        }
+    }
+
+    .map-box{
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        overflow: hidden;
+
+        @include for_breakpoint(tablet mobile sm-mobile){
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+
+        iframe{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    form{
+        display: block;
+        padding: 40px 20px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background: $page;
+
+        @include for_breakpoint(tablet mobile sm-mobile){
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        h2{
+            font-size: 24px ;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .success{
+            text-align: center;
+            color: $purple;
+            text-transform: capitalize;
+        }
+
+        .form-flex{
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+
+            @include for_breakpoint(tablet mobile sm-mobile){
+                grid-template-columns: 100%;
+            }
+        }
+
+        input{
+            width: 100%;
+            height: 40px;
+            border-radius: 30px;
+            border: 1px solid lighten($dark, 80);
+            padding: 10px 20px;
+            outline: none;
+        }
+
+        textarea{
+            width: 100%;
+            border-radius: 30px;
+            border: 1px solid lighten($dark, 80);
+            padding: 20px 20px;
+            outline: none;
+            resize: none;
+        }
+
+        .message-btn{
+            border: 2px solid $purple;
+            background: $purple;
+            color: $light;
+            border-radius: 30px;
+            padding: 10px 20px;
+            transition: all 0.3s ease-in-out;
+
+
+            &:hover{
+                background: transparent;
+                color: $purple;
+            }
+        }
+    }
+}

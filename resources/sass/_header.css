@@ -1,0 +1,1 @@
+nav{display:flex;flex-direction:row;padding-top:20px;padding-bottom:20px}nav .nav-header{flex-basis:180px}nav .nav-header .nav-brand{width:100%}nav .nav-header .nav-brand img{width:100%}nav ul{display:flex;flex-grow:1;justify-content:flex-end;align-items:center}nav ul li{list-style:none}nav ul li a{padding:10px;text-decoration:none}nav ul li a:hover{border-bottom:1px solid}

@@ -1,0 +1,98 @@
+$purple: rgb(63, 62, 141);
+$dark-blue: rgb(78, 108, 216);
+$light-blue: rgb(95, 171, 209);
+$dark: #000000;
+$light: #ffffff;
+$page: #f3f3f3;
+
+@mixin  backgroundImage($url,$size) {
+
+    background: url($url);
+    background-size: $size;
+    background-repeat: no-repeat;
+}
+
+$size___site_content_width: 1024px;
+$_content_width_plus_one: size___site_content_width+1;
+$media_queries: (
+
+    'sm-mobile': unquote("only screen and (max-width: 375px)"),
+    'mobile': unquote("only screen and (min-width: 376px) and (max-width: 640px)"),
+    'tablet': unquote("only screen and (min-width: 641px) and (max-width: 1023px)"),
+    'desktop': unquote("only screen and (min-width: 1024px) and (max-width: 1280px)"),
+    'lg-desktop': unquote("only screen and (min-width: 1400px) and (max-width: 1980px)"),
+);
+@font-face {
+    font-family: Sora;
+    src: url("/fonts/Sora/static/Sora-Regular.ttf");
+}
+@mixin for_breakpoint($breakpoints) {
+    $conditions: ();
+    @each $breakpoint in $breakpoints {
+        $conditions: append(
+            $conditions,
+            #{inspect(map-get($media_queries, $breakpoint))},
+            comma
+        );
+    }
+
+    @media #{$conditions} {
+        @content
+    }
+
+}
+
+%btn{
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+%purple-border-btn{
+    @extend %btn;
+    color: $purple;
+    border: 1px solid $purple;
+
+    &:hover{
+        background: $purple;
+        color: $light;
+    }
+}
+%purple-btn{
+    @extend %btn;
+    color: $light;
+    background: $purple;
+    border: 1px solid $purple;
+
+    &:hover{
+        background: transparent;
+        color: $purple;
+    }
+}
+.pagination{
+    display: flex;
+
+    li{
+        list-style: none;
+        margin: 0px 10px;
+        color: $dark;
+
+        &:hover{
+            color: $purple;
+        }
+
+        a{
+            text-decoration: none;
+        }
+    }
+
+    .active{
+        color: $purple;
+        font-weight: bold;
+    }
+}
+
+html{
+    scroll-behavior: smooth;
+}

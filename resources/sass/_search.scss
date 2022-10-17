@@ -1,0 +1,235 @@
+#search-page {
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+
+    @include for_breakpoint(tablet mobile sm-mobile) {
+        margin-top: 0px;
+    }
+
+    .col-1 {
+        flex-basis: 35%;
+        width: 35%;
+        padding-bottom: 100px;
+
+        @include for_breakpoint(tablet mobile sm-mobile) {
+            padding-bottom: 25px;
+            flex-basis: 100%;
+            width: 100%;
+        }
+
+        .img-box {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 50px auto 0px;
+
+
+            @include for_breakpoint(mobile sm-mobile) {
+                width: 150px;
+                height: 150px;
+            }
+
+            @include for_breakpoint(tablet mobile sm-mobile) {
+                margin: 0px auto 0px;
+            }
+
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .username {
+            font-size: 21px;
+            color: $dark;
+            font-weight: bold;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 16px;
+            color: lighten($dark, 60);
+            margin-top: 10px;
+            text-align: center;
+        }
+    }
+
+    .col-2 {
+        flex-basis: 65%;
+        width: 65%;
+
+
+        @include for_breakpoint(tablet mobile sm-mobile) {
+            flex-basis: 100%;
+            width: 100%;
+        }
+
+        .rounded {
+            border-radius: 20px;
+            border: 1px solid lighten($dark, 80);
+            padding: 30px;
+            overflow: hidden;
+
+            .section-heading {
+                font-weight: bold;
+                font-size: 21px;
+                color: $dark;
+            }
+
+            .search-form {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: 10px;
+                flex-grow: 1;
+                margin-top: 20px;
+
+                @include for_breakpoint(tablet) {
+                    grid-template-columns: repeat(2, 1fr);
+                    row-gap: 20px;
+                }
+
+
+                @include for_breakpoint(mobile sm-mobile) {
+                    grid-template-columns: repeat(2, 1fr);
+                    row-gap: 10px;
+                }
+
+                input {
+                    border: 1px solid lighten($dark, 60);
+                    outline: none;
+                    border-radius: 30px;
+                    width: 100%;
+                    height: 100%;
+                    padding-left: 20px;
+
+                    @include for_breakpoint(tablet mobile sm-mobile) {
+                        height: 40px;
+                    }
+
+                    &:focus-visible {
+                        border: 1px solid $purple;
+                    }
+                }
+
+                .form-control:nth-child(3) {
+                    @include for_breakpoint(tablet mobile sm-mobile) {
+                        grid-column: 1 / span 2;
+                    }
+                }
+
+                .form-control:nth-child(1),
+                .form-control:nth-child(2) {
+
+                    @include for_breakpoint(mobile sm-mobile) {
+                        grid-column: 1 / span 2;
+                    }
+                }
+
+                .search-btn {
+                    @extend %purple-btn;
+                    padding: 10px 5px;
+                    border-radius: 20px;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .company-search-result {
+                margin-top: 50px;
+
+
+                @include for_breakpoint(mobile sm-mobile) {
+                    margin-top: 30px;
+                }
+
+                .single-result {
+                    padding-block: 15px;
+                    border-bottom: 1px solid lighten($dark, 80);
+                    column-gap: 15px;
+                    margin-bottom: 15px;
+
+                    @include for_breakpoint(mobile sm-mobile) {
+                        flex-wrap: nowrap;
+                    }
+
+                    .logo-box {
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 50%;
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .job-title {
+                        color: $dark;
+                        font-weight: bold;
+                        font-size: 18px;
+                        text-transform: capitalize;
+                    }
+
+                    .detail-box {
+                        flex-grow: 1;
+                        display: grid;
+                        place-items: center;
+
+                        @include for_breakpoint(mobile sm-mobile) {
+                            row-gap: 5px;
+                        }
+
+                        .flex {
+                            justify-content: space-between;
+                            width: 100%;
+                            flex-basis: 100%;
+                            flex-wrap: nowrap;
+                        }
+                    }
+
+                    .bookmark {
+                        font-size: 18px;
+                        color: $purple;
+                        text-decoration: none;
+                        transition: all 0.3s ease-in-out;
+
+                        &:hover {
+                            color: $dark-blue;
+                        }
+                    }
+
+                    .company-name {
+                        color: lighten($dark, 60);
+                        text-transform: capitalize;
+                        font-size: 14px;
+                        word-break: break-word;
+                        text-decoration: none;
+
+                        &:hover{
+                            color: $purple;
+                        }
+                    }
+
+                    .posting-details {
+                        color: lighten($dark, 60);
+                        display: flex;
+                        column-gap: 20px;
+                        font-size: 12px;
+                        word-break: break-word;
+
+
+                        @include for_breakpoint(mobile sm-mobile) {
+                            flex-direction: column;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,400 @@
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: height 0.5s cubic-bezier(0.1, 0.05, 0.36, 1), background-color 0.2s ease-in-out;
+    transform-origin: left;
+    z-index: 100000;
+
+    &::before {
+        content: "";
+        position: absolute;
+        background: $light;
+
+        display: none;
+        z-index: -1;
+        inset: 0;
+
+
+        @include for_breakpoint(tablet mobile sm-mobile) {
+
+            display: block;
+
+        }
+    }
+
+    @include for_breakpoint(tablet mobile sm-mobile) {
+
+        // background: $light;
+        box-shadow: 0px 0px 4px 0px lighten($dark, 50);
+
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        flex-wrap: wrap;
+
+        @include for_breakpoint(tablet mobile sm-mobile) {
+
+            justify-content: space-between;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            height: 64px;
+            transition: height 0.5s ease-in-out;
+            overflow: hidden;
+            row-gap: 20px;
+        }
+
+        .nav-toogler {
+            display: none;
+            width: 19px;
+
+            @include for_breakpoint(tablet mobile sm-mobile) {
+                display: grid;
+                grid-template-columns: 1fr;
+                place-items: center;
+            }
+
+            a {
+                color: $dark;
+                font-size: 21px;
+            }
+        }
+
+        .nav-header {
+            flex-basis: 180px;
+
+            @include for_breakpoint(desktop tablet mobile sm-mobile) {
+
+                flex-basis: 160px;
+
+            }
+
+            .nav-brand {
+
+                width: 100%;
+
+                img {
+                    width: 100%;
+
+                    @include for_breakpoint(tablet mobile sm-mobile) {
+
+                        vertical-align: middle;
+
+                    }
+                }
+            }
+
+        }
+
+        .menu-ul {
+            display: flex;
+            flex-grow: 1;
+            justify-content: flex-end;
+            align-items: center;
+            transition: all 0.3s ease-in;
+            transform-origin: left;
+
+            @include for_breakpoint(tablet mobile sm-mobile) {
+
+                flex-direction: column;
+                order: 1;
+                flex-basis: 100%;
+                align-items: flex-start;
+                justify-content: flex-start;
+
+            }
+
+            .auth-li {
+                padding-bottom: 0px;
+
+                ul {
+                    margin: 0 15px;
+                }
+
+                .main-dropdown {
+                    position: relative;
+                    margin: 0;
+                }
+
+                .sub-menu {
+                    text-decoration: none;
+                    font-weight: bold;
+                    color: $purple !important;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    word-break: keep-all;
+                    padding-bottom: 10px;
+                    text-transform: capitalize;
+                    position: relative;
+
+                    span {
+                        display: none;
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        background: $purple;
+                        position: absolute;
+                        top: 0;
+                        left: 100%;
+                    }
+                }
+
+                .sub-menu+.sub-ul {
+                    box-shadow: 0 0 4px lighten($dark, 50);
+                    border-radius: 5px;
+                    position: absolute;
+                    min-width: 100%;
+                    top: 100%;
+                    left: 0;
+                    z-index: 100;
+                    background: $light;
+                    display: none;
+                    transition: all 0.2s ease-in-out;
+                    padding: 8px 10px;
+                }
+
+                .sub-menu+.sub-ul ul {
+                    display: block;
+                    margin: 0;
+
+                    li {
+                        list-style: none;
+                        padding: 7px 10px;
+                        margin: 0;
+                    }
+
+                    a {
+                        text-decoration: none;
+                    }
+                }
+
+                .sub-menu:hover+.sub-ul,
+                .sub-ul:hover {
+                    display: block;
+                }
+
+                @include for_breakpoint(tablet mobile sm-mobile) {
+
+                    display: none;
+                }
+
+                a {
+                    color: $dark !important;
+                }
+
+                .logout-btn {
+                    background: transparent;
+                    border: none;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+
+                #nav-chat-link {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    span {
+                        display: none;
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        background: $purple;
+                    }
+                }
+
+            }
+
+            li {
+                list-style: none;
+                padding-bottom: 10px;
+
+                .nav-items {
+                    padding: 10px 5px;
+                    text-decoration: none;
+                    color: $dark;
+                    margin: 0px 10px;
+
+                    @include for_breakpoint(tablet mobile sm-mobile) {
+
+                        display: block;
+                        width: 100%;
+                        font-size: 21px;
+
+                        &::before {
+                            content: "";
+                            height: 100%;
+                            border: 2px solid $purple;
+                            background: $purple;
+                            margin-right: 5px;
+                            display: none;
+                        }
+                    }
+
+                    &:hover,
+                    &.active {
+                        color: $purple;
+                        border-bottom: 2px solid $purple;
+
+                        @include for_breakpoint(tablet mobile sm-mobile) {
+
+                            color: $purple;
+                            border-bottom: none;
+
+                            &::before {
+                                display: inline;
+                            }
+                        }
+                    }
+                }
+
+                .login-li {
+                    display: none;
+
+                    @include for_breakpoint(tablet mobile sm-mobile) {
+                        display: block;
+                    }
+                }
+
+                .login-btn {
+                    padding: 10px 5px;
+                    margin-left: 18px;
+                    border-radius: 20px;
+                    width: 180px;
+                    margin-right: 10px;
+                    font-family: Sora;
+
+                    @extend %purple-border-btn;
+
+                    @include for_breakpoint(desktop) {
+                        padding: 9px 5px;
+                        width: 135px;
+                        font-size: 14px;
+                    }
+
+                    @include for_breakpoint(tablet mobile sm-mobile) {
+
+                        background: none;
+                        border: none;
+                        text-align: start;
+                        padding: 10px 5px;
+                        margin: 0px 10px;
+                        color: $dark;
+                        font-size: 21px;
+                        display: block;
+                        width: 100%;
+
+                        &::before {
+                            content: "";
+                            height: 100%;
+                            border: 2px solid $purple;
+                            background: $purple;
+                            margin-right: 5px;
+                            display: none;
+                        }
+
+                        &:hover,
+                        &.active {
+                            color: $purple;
+                            border-bottom: 2px solid $purple;
+
+                            @include for_breakpoint(tablet mobile sm-mobile) {
+
+                                color: $purple;
+                                border-bottom: none;
+                                background: transparent;
+
+                                &::before {
+                                    display: inline;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .post-btn {
+                    padding: 10px 5px;
+                    border-radius: 20px;
+                    width: 180px;
+                    margin-left: 10px;
+                    margin-right: 18px;
+
+                    @extend %purple-btn;
+
+                    @include for_breakpoint(desktop) {
+                        padding: 9px 5px;
+                        width: 135px;
+                    }
+
+                    @include for_breakpoint(tablet mobile sm-mobile) {
+
+                        background: none;
+                        border: none;
+                        text-align: start;
+                        padding: 10px 5px;
+                        color: $dark;
+                        margin: 0px 10px;
+                        font-size: 21px;
+                    }
+
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    margin-left: 20px;
+                    margin-right: 20px;
+
+                    li {
+                        color: $dark;
+                        margin: 0 10px;
+                    }
+
+                }
+
+
+
+            }
+
+
+        }
+
+        .auth-ul {
+            display: none;
+
+            @include for_breakpoint(tablet mobile sm-mobile) {
+                display: flex;
+                flex-grow: 1;
+                justify-content: flex-end;
+                padding-right: 10px;
+            }
+
+            li {
+                list-style-type: none;
+                margin: 0 8px;
+
+                display: grid;
+                grid-template-columns: 1fr;
+                place-items: center;
+
+                a {
+                    color: $dark;
+                }
+
+                button {
+                    background: transparent;
+                    border: none;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+            }
+
+
+        }
+    }
+}

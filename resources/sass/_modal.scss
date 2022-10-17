@@ -1,0 +1,149 @@
+.modal-container {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: transparentize($dark, 0.6);
+    z-index: 10000000;
+    top: -100%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    transition: all 0.5s ease-in-out;
+    overflow-y: scroll;
+    padding: 50px 0px;
+
+
+    .modal-content {
+        padding: 20px;
+        background: $light;
+        border-radius: 10px;
+        max-width: 600px;
+        width: 100%;
+        position: relative;
+    }
+
+    .modal-head {
+        border-bottom: 1px solid lighten($dark, 80);
+
+        .modal-title {
+            color: $dark;
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    }
+
+    .modal-close-icon {
+        border: none;
+        color: $dark;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        border-radius: 50%;
+        padding: 6px 8px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    .modal-body {
+        padding-block: 20px;
+        border-bottom: 1px solid lighten($dark, 80);
+    }
+
+    .about-area {
+        border-radius: 25px;
+        border: 1px solid lighten($dark, 80);
+        width: 100%;
+        outline: none;
+        padding: 20px 20px;
+        resize: none;
+    }
+
+    .file-btn{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    .text-feild {
+        width: 100%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-radius: 30px;
+        border: 1px solid lighten($dark, 80);
+        padding-left: 25px;
+        outline: none;
+    }
+
+    input[type="date"]{
+        padding-right: 20px;
+    }
+
+    .form-control{
+        margin-block: 8px;
+
+        label{
+            color: $dark;
+            margin-bottom: 4px;
+            margin-top: 20px;
+            margin-left: 20px;
+            font-size: 16px;
+            display: block;
+        }
+    }
+
+    .modal-footer {
+        padding-block: 10px;
+
+        .save-btn {
+            border-radius: 5px;
+            color: $light;
+            background: $purple;
+            padding: 10px 20px;
+            border: none;
+            float: right;
+        }
+    }
+    #company-search{
+        position: relative;
+    }
+    .search-result{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 0px;
+        width: 100%;
+        background: $light;
+        display: none;
+
+        .single-result{
+            border-bottom: 1px solid lighten($dark, 80);
+            padding: 4px 20px;
+            column-gap: 10px;
+            cursor: pointer;
+
+            .img-box{
+                width: 40px;
+                height: 40px;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+            }
+            .company-name{
+                display: grid;
+                place-items: center;
+
+                p{
+                    font-size: 16px;
+                    color: $dark;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

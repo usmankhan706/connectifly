@@ -1,0 +1,530 @@
+//responsive container
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 1320px;
+
+    @include for_breakpoint(lg-desktop) {
+        max-width: 1320px;
+    }
+
+    @include for_breakpoint(desktop) {
+        max-width: 970px;
+    }
+
+    @include for_breakpoint(tablet) {
+        max-width: 720px;
+    }
+
+
+    @include for_breakpoint(mobile) {
+        max-width: 100%;
+    }
+}
+
+.rounded {
+    border-radius: 50%;
+}
+
+
+
+.validation-message {
+    margin-top: 10px;
+    margin-left: 25px;
+    color: red;
+    margin-bottom: 0px;
+}
+
+//flexbox
+.flex {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.no-wrap {
+    flex-wrap: nowrap;
+}
+
+.input-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.flex-column {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.view-popup {
+    display: block;
+}
+
+.hide-popup {
+    display: none;
+}
+
+.grid-area-chat {
+    grid-template-areas: "topbar topbar"
+        "replies about"
+        "send about";
+
+    @include for_breakpoint(tablet mobile sm-mobile) {
+        grid-template-areas: "topbar topbar"
+            "replies replies"
+            "send send";
+    }
+
+
+}
+
+.grid-area-about {
+    grid-template-areas: "topbar topbar"
+        "replies about"
+        "send about";
+
+    @include for_breakpoint(tablet mobile sm-mobile) {
+        grid-template-areas: "topbar topbar"
+            "about about"
+            "about about";
+    }
+}
+
+.chat-wrapper-area {
+
+    grid-template-columns: 25% 1fr;
+
+    @include for_breakpoint(desktop) {
+        grid-template-columns: 30% 1fr;
+    }
+
+    @include for_breakpoint(tablet) {
+        grid-template-columns: 40% 1fr;
+    }
+
+    @include for_breakpoint(mobile sm-mobile) {
+        grid-template-columns: 100% 0px;
+    }
+}
+.chat-wrapper-toggle {
+
+    grid-template-columns: 25% 1fr;
+
+    @include for_breakpoint(desktop) {
+        grid-template-columns: 30% 1fr;
+    }
+
+    @include for_breakpoint(tablet) {
+        grid-template-columns: 40% 1fr;
+    }
+
+    @include for_breakpoint(mobile sm-mobile) {
+        grid-template-columns: 0px 100%;
+    }
+}
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+.hidden-md {
+    @include for_breakpoint(tablet mobile sm-mobile) {
+        display: none !important;
+    }
+}
+
+.visible-md {
+    @include for_breakpoint(tablet mobile sm-mobile) {
+        display: block !important;
+    }
+}
+.flex-md {
+    @include for_breakpoint(tablet mobile sm-mobile) {
+        display: flex !important;
+    }
+}
+
+.hidden-sm {
+    @include for_breakpoint(mobile sm-mobile) {
+        display: none !important;
+    }
+}
+
+.visible-sm {
+    @include for_breakpoint(mobile sm-mobile) {
+        display: block !important;
+    }
+}
+.grid-sm {
+    @include for_breakpoint(mobile sm-mobile) {
+        display: grid !important;
+    }
+}
+.flex-sm {
+    @include for_breakpoint(mobile sm-mobile) {
+        display: flex !important;
+    }
+}
+.d-flex {
+    display: flex !important;
+}
+
+.grid {
+    display: grid !important;
+}
+
+// margin and padding classes
+@for $spacing from 1 through 96 {
+    .m-#{$spacing} {
+        padding: (1rem / 4) * $spacing;
+    }
+
+    .px-#{$spacing} {
+        padding-left: (1rem / 4) * $spacing;
+        padding-right: (1rem / 4) * $spacing;
+    }
+
+    .py-#{$spacing} {
+        padding-top: (1rem / 4) * $spacing;
+        padding-bottom: (1rem / 4) * $spacing;
+    }
+
+    .pt-#{$spacing} {
+        padding-top: (1rem / 4) * $spacing;
+    }
+
+    .pb-#{$spacing} {
+        padding-bottom: (1rem / 4) * $spacing;
+    }
+
+    .pl-#{$spacing} {
+        padding-left: (1rem / 4) * $spacing;
+    }
+
+    .pr-#{$spacing} {
+        padding-right: (1rem / 4) * $spacing;
+    }
+
+    @include for_breakpoint(mobile) {
+        .p-sm-#{$spacing} {
+            padding: (1rem / 4) * $spacing;
+        }
+
+        .px-sm-#{$spacing} {
+            padding-left: (1rem / 4) * $spacing;
+            padding-right: (1rem / 4) * $spacing;
+        }
+
+        .py-sm-#{$spacing} {
+            padding-top: (1rem / 4) * $spacing;
+            padding-bottom: (1rem / 4) * $spacing;
+        }
+
+        .pt-sm-#{$spacing} {
+            padding-top: (1rem / 4) * $spacing;
+        }
+
+        .pb-sm-#{$spacing} {
+            padding-bottom: (1rem / 4) * $spacing;
+        }
+
+        .pl-sm-#{$spacing} {
+            padding-left: (1rem / 4) * $spacing;
+        }
+
+        .pr-sm-#{$spacing} {
+            padding-right: (1rem / 4) * $spacing;
+        }
+    }
+
+    @include for_breakpoint(tablet) {
+        .p-md-#{$spacing} {
+            padding: (1rem / 4) * $spacing;
+        }
+
+        .px-md-#{$spacing} {
+            padding-left: (1rem / 4) * $spacing;
+            padding-right: (1rem / 4) * $spacing;
+        }
+
+        .py-md-#{$spacing} {
+            padding-top: (1rem / 4) * $spacing;
+            padding-bottom: (1rem / 4) * $spacing;
+        }
+
+        .pt-md-#{$spacing} {
+            padding-top: (1rem / 4) * $spacing;
+        }
+
+        .pb-md-#{$spacing} {
+            padding-bottom: (1rem / 4) * $spacing;
+        }
+
+        .pl-md-#{$spacing} {
+            padding-left: (1rem / 4) * $spacing;
+        }
+
+        .pr-md-#{$spacing} {
+            padding-right: (1rem / 4) * $spacing;
+        }
+    }
+
+    @include for_breakpoint(desktop) {
+        .p-lg-#{$spacing} {
+            padding: (1rem / 4) * $spacing;
+        }
+
+        .px-lg-#{$spacing} {
+            padding-left: (1rem / 4) * $spacing;
+            padding-right: (1rem / 4) * $spacing;
+        }
+
+        .py-lg-#{$spacing} {
+            padding-top: (1rem / 4) * $spacing;
+            padding-bottom: (1rem / 4) * $spacing;
+        }
+
+        .pt-lg-#{$spacing} {
+            padding-top: (1rem / 4) * $spacing;
+        }
+
+        .pb-lg-#{$spacing} {
+            padding-bottom: (1rem / 4) * $spacing;
+        }
+
+        .pl-lg-#{$spacing} {
+            padding-left: (1rem / 4) * $spacing;
+        }
+
+        .pr-lg-#{$spacing} {
+            padding-right: (1rem / 4) * $spacing;
+        }
+    }
+
+    .m-#{$spacing} {
+        margin: (1rem / 4) * $spacing;
+    }
+
+    .mx-#{$spacing} {
+        margin-left: (1rem / 4) * $spacing;
+        margin-right: (1rem / 4) * $spacing;
+    }
+
+    .my-#{$spacing} {
+        margin-top: (1rem / 4) * $spacing;
+        margin-bottom: (1rem / 4) * $spacing;
+    }
+
+    .mt-#{$spacing} {
+        margin-top: (1rem / 4) * $spacing;
+    }
+
+    .mb-#{$spacing} {
+        margin-bottom: (1rem / 4) * $spacing;
+    }
+
+    .ml-#{$spacing} {
+        margin-left: (1rem / 4) * $spacing;
+    }
+
+    .mr-#{$spacing} {
+        margin-right: (1rem / 4) * $spacing;
+    }
+
+    @include for_breakpoint(mobile) {
+        .m-sm-#{$spacing} {
+            margin: (1rem / 4) * $spacing;
+        }
+
+        .mx-sm-#{$spacing} {
+            margin-left: (1rem / 4) * $spacing;
+            margin-right: (1rem / 4) * $spacing;
+        }
+
+        .my-sm-#{$spacing} {
+            margin-top: (1rem / 4) * $spacing;
+            margin-bottom: (1rem / 4) * $spacing;
+        }
+
+        .mt-sm-#{$spacing} {
+            margin-top: (1rem / 4) * $spacing;
+        }
+
+        .mb-sm-#{$spacing} {
+            margin-bottom: (1rem / 4) * $spacing;
+        }
+
+        .ml-sm-#{$spacing} {
+            margin-left: (1rem / 4) * $spacing;
+        }
+
+        .mr-sm-#{$spacing} {
+            margin-right: (1rem / 4) * $spacing;
+        }
+    }
+
+    @include for_breakpoint(tablet) {
+        .m-md-#{$spacing} {
+            margin: (1rem / 4) * $spacing;
+        }
+
+        .mx-md-#{$spacing} {
+            margin-left: (1rem / 4) * $spacing;
+            margin-right: (1rem / 4) * $spacing;
+        }
+
+        .my-md-#{$spacing} {
+            margin-top: (1rem / 4) * $spacing;
+            margin-bottom: (1rem / 4) * $spacing;
+        }
+
+        .mt-md-#{$spacing} {
+            margin-top: (1rem / 4) * $spacing;
+        }
+
+        .mb-md-#{$spacing} {
+            margin-bottom: (1rem / 4) * $spacing;
+        }
+
+        .ml-md-#{$spacing} {
+            margin-left: (1rem / 4) * $spacing;
+        }
+
+        .mr-md-#{$spacing} {
+            margin-right: (1rem / 4) * $spacing;
+        }
+    }
+
+    @include for_breakpoint(desktop) {
+        .m-lg-#{$spacing} {
+            margin: (1rem / 4) * $spacing;
+        }
+
+        .mx-lg-#{$spacing} {
+            margin-left: (1rem / 4) * $spacing;
+            margin-right: (1rem / 4) * $spacing;
+        }
+
+        .my-lg-#{$spacing} {
+            margin-top: (1rem / 4) * $spacing;
+            margin-bottom: (1rem / 4) * $spacing;
+        }
+
+        .mt-lg-#{$spacing} {
+            margin-top: (1rem / 4) * $spacing;
+        }
+
+        .mb-lg-#{$spacing} {
+            margin-bottom: (1rem / 4) * $spacing;
+        }
+
+        .ml-lg-#{$spacing} {
+            margin-left: (1rem / 4) * $spacing;
+        }
+
+        .mr-lg-#{$spacing} {
+            margin-right: (1rem / 4) * $spacing;
+        }
+    }
+}
+
+
+body {
+    font-family: Sora;
+}
+
+.file-btn {
+    width: 100%;
+    border-radius: 30px;
+    border: 1px solid lighten($dark, 60);
+    padding-left: 25px;
+    outline: none;
+    display: grid;
+    justify-content: end;
+    align-items: center;
+    padding-inline: 10px;
+
+    input {
+        display: none;
+    }
+
+    label {
+        background: lighten($purple, 40);
+        padding: 4px 10px;
+        border-radius: 20px;
+        color: $purple;
+    }
+}
+
+.star-radio {
+    display: none;
+
+    &:checked~.stars {
+        color: #f7dd24;
+    }
+}
+
+.stars {
+    flex-basis: 25%;
+    color: lighten($dark, 80);
+    font-size: 40px;
+    display: grid;
+    place-items: center;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+        color: #f7dd24;
+    }
+
+    &:hover~& {
+        color: #f7dd24;
+    }
+
+}
+
+.ratings {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    border-radius: 30px;
+    border: 1px solid lighten($dark, 80);
+    padding-inline: 25px;
+    outline: none;
+    transform: rotateY(180deg);
+}
+
+.ratings-head {
+    color: $dark;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+::placeholder {
+    font-family: Sora;
+}
+
+input,
+select,
+option,
+button {
+    font-family: 'Sora';
+}
+
+button {
+    cursor: pointer;
+}
